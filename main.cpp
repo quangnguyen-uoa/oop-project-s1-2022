@@ -8,16 +8,24 @@ class Game {
     private:
         sf::RenderWindow *win;
         Character* character;
-        int _army_size;
-        int _score;
+        int _score = 0;
         int _speed;
         int window_size;
+        sf::Text Text;
+        sf::Font Font;
+
     public:
         Game(int size, std::string title, int speed) {
             win = new sf::RenderWindow(sf::VideoMode(size, size), title);
             character = new Character(10, 50, 50);
             _speed = speed;
             window_size = size;
+            if (!Font.loadFromFile("QUICKENS.ttf")) {
+                exit(0);
+            }
+            Text.setFont(Font);
+            Text.setFillColor(sf::Color::Blue);
+            Text.setCharacterSize(25); 
         }
         void run() {
             while (win->isOpen()) {
@@ -38,6 +46,10 @@ class Game {
                 }
                 win->clear();
                 character->draw(win);
+                std::string info;
+                info = "Score " + std::to_string(_score) + "\n" + "Lives " + std::to_string(character->get_life()) + " ";
+                Text.setString(info);
+                win->draw(Text);
                 win->display();
             }
         }
