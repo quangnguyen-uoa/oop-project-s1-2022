@@ -4,7 +4,7 @@
 class Character {
     private:
         sf::CircleShape* body;
-        int lives;
+        int lives = 3;
         int depth;
         bool isFall = true;
     public:
@@ -15,6 +15,7 @@ class Character {
         // bool isCollide(int x, int y, int depth);
         void respawn(int max_size, int min_size);
         bool check_fall();
+        int get_life();
         int get_x();
         int get_y();
         int get_depth();

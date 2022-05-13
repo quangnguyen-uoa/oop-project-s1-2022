@@ -40,6 +40,10 @@ int Character::get_depth() {
     return depth;
 }
 
+int Character::get_life() {
+    return lives;
+}
+
 void Character::respawn(int max_size, int min_size) {
     int new_y = rand() % max_size + min_size;
     int new_x = rand() % max_size + min_size;
