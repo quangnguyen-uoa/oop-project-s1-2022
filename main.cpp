@@ -38,7 +38,7 @@ class Game {
                     if (menu_event.type == sf::Event::Closed || menu_event.key.code == sf::Keyboard::Q)
                         gui_win->close();
                     if (menu_event.type == sf::Event::MouseButtonPressed) {
-                        if (menu_event.mouseButton.y <= 370 && menu_event.mouseButton.y >= 300) {
+                        if (menu_event.mouseButton.y <= 370 && menu_event.mouseButton.y >= 300 && menu_event.mouseButton.x >= 400 && menu_event.mouseButton.x <= 570) {
                             while (win->isOpen()) {
                                 sf::Event event;
                                 while (win->pollEvent(event)) {
@@ -65,7 +65,7 @@ class Game {
                                 win->display();
                             }
                         }
-                        else if (menu_event.mouseButton.y >= 400 && menu_event.mouseButton.y <= 470) {
+                        else if (menu_event.mouseButton.y >= 400 && menu_event.mouseButton.y <= 470 && menu_event.mouseButton.x >= 400 && menu_event.mouseButton.x <= 560) {
                             gui_win->close();
                         }
                         break;
