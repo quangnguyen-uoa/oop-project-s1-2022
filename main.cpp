@@ -29,60 +29,46 @@ class Game {
             Text.setCharacterSize(25); 
         }
         void run() {
-            sf::RenderWindow *gui_win = new sf::RenderWindow(sf::VideoMode(window_size, window_size), "Menu", sf::Style::Default);
+            sf::RenderWindow *gui_win = new sf::RenderWindow(sf::VideoMode(window_size, window_size), "Game Menu", sf::Style::Default);
             GUI *gui = new GUI(window_size, window_size);
-            sf::RectangleShape bg;
-            bg.setSize(sf::Vector2f(window_size, window_size));
-            sf::Texture texture;
-            bg.setTexture(&texture);
 
             while(gui_win->isOpen()) {
                 sf::Event menu_event;
                 while(gui_win->pollEvent(menu_event)) {
                     if (menu_event.type == sf::Event::Closed || menu_event.key.code == sf::Keyboard::Q)
                         gui_win->close();
-                    if (menu_event.type == sf::Event::KeyReleased) {
-                        if (menu_event.key.code == sf::Keyboard::Up) {
-                            gui->move_up();
-                            break;
-                        }
-                        if (menu_event.key.code == sf::Keyboard::Down) {
-                            gui->move_down();
-                            break;
-                        }
-                        if (menu_event.key.code == sf::Keyboard::Return) {
-                            if (gui->clicked() == 0) {
-                                while (win->isOpen()) {
-                                    sf::Event event;
-                                    while (win->pollEvent(event)) {
-                                        if (event.type == sf::Event::Closed)
-                                            win->close();
-                                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                                            character->move_left(_speed);
-                                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-                                            character->move_right(_speed);
-                                        if (character->get_y() >= 1000) {
-                                            character->respawn(500, 50);
-                                        }
-                                        if (character->get_x() >= 1000 || character->get_x() <= 0) {
-                                            character->respawn(500, 50);
-                                        }
+                    if (menu_event.type == sf::Event::MouseButtonPressed) {
+                        if (menu_event.mouseButton.y <= 370 && menu_event.mouseButton.y >= 300) {
+                            while (win->isOpen()) {
+                                sf::Event event;
+                                while (win->pollEvent(event)) {
+                                    if (event.type == sf::Event::Closed)
+                                        win->close();
+                                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                                        character->move_left(_speed);
+                                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                                        character->move_right(_speed);
+                                    if (character->get_y() >= 1000) {
+                                        character->respawn(500, 50);
                                     }
-                                    gui_win->close();
-                                    win->clear();
-                                    character->draw(win);
-                                    std::string info;
-                                    info = "Score " + std::to_string(_score) + "\n" + "Lives " + std::to_string(character->get_life()) + " ";
-                                    Text.setString(info);
-                                    win->draw(Text);
-                                    win->display();
+                                    if (character->get_x() >= 1000 || character->get_x() <= 0) {
+                                        character->respawn(500, 50);
+                                    }
                                 }
-                            }
-                            if (gui->clicked() == 1) {
                                 gui_win->close();
+                                win->clear();
+                                character->draw(win);
+                                std::string info;
+                                info = "Score " + std::to_string(_score) + "\n" + "Lives " + std::to_string(character->get_life()) + " ";
+                                Text.setString(info);
+                                win->draw(Text);
+                                win->display();
                             }
-                            break;
                         }
+                        else if (menu_event.mouseButton.y >= 400 && menu_event.mouseButton.y <= 470) {
+                            gui_win->close();
+                        }
+                        break;
                     }
                 }
                 gui_win->clear();
