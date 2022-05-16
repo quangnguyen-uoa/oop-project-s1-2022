@@ -2,9 +2,9 @@
 
 #include "Bar.h"
 
-class Land : public Bar {
+class Trap : public Bar {
 public:
-    Land();
+    Trap();
     void touch(Character *character);
-    ~Land();
+    ~Trap();
 };

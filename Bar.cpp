@@ -1,17 +1,35 @@
 #include "Bar.h"
 
 Bar::Bar() {
-    body = new sf::RectangleShape(sf::Vector2f(30.f, 200.f));
+    body = new sf::RectangleShape(sf::Vector2f(300, 5));
 }
 
 void Bar::spawn(sf::RenderWindow *win) {
-    int pos_x = rand() % win->getSize().x + 1;
-    body->setPosition(pos_x, win->getSize().y);
-} 
+    int pos_x = rand() % 800;
+    body->setPosition(pos_x, 1500);
+}
 
-void Bar::draw(sf::RenderWindow *win) {
-    body->move(0, -0.25);
-    if (body->getPosition().y <= win->getSize().y) win->draw(*body);
+bool Bar::draw(sf::RenderWindow *win, double speed) {
+    body->move(0, -0.05 * speed);
+    if (body->getPosition().y >= 0.05) {
+        win->draw(*body);
+        return true;
+    }
+    else {
+        spawn(win);
+    }
+    return false;
+}
+
+int Bar::get_x() {
+    return body->getPosition().x;;
+}
+int Bar::get_y() {
+    return body->getPosition().y;
+}
+
+int Bar::length() {
+    return body->getSize().x;
 }
 
 Bar::~Bar() {
