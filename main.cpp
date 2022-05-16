@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "Character.h"
+#include "character.h"
 #include "Bar.h"
 #include "Land.h"
 #include "Trap.h"

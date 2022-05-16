@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <stdlib.h>
-#include "Character.h"
+#include "character.h"
 #include <iostream>
 
 Character::Character(int r, int x, int y) {
