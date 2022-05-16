@@ -7,7 +7,7 @@
 class Character {
     private:
         sf::CircleShape* body;
-        int lives = 3;
+        int lives = 5;
         bool isFall = true;
     public:
         Character(int r, int x, int y);

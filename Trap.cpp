@@ -2,6 +2,7 @@
 
 Trap::Trap() {
     body->setFillColor(sf::Color::Red);
+    body->setSize(sf::Vector2f(200, 5));
 }
 
 void Trap::touch(Character* character) {
