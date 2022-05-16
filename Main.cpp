@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "Bar.h"
 #include "Land.h"
+#include "Trap.h"
 #include <math.h>
 #include <iostream>
 
@@ -53,7 +54,11 @@ class Game {
                 Text.setString(info);
 
                 if (v.empty() || (v.size() < 10 && v.back()->get_y() == 1350)) {
-                    Bar *A = new Land;
+                    Bar *A;
+                    if (v.size() % 3 == 0) 
+                        A = new Trap;
+                    else 
+                        A = new Land;
                     A->spawn(win);
                     v.push_back(A);
                 } 
