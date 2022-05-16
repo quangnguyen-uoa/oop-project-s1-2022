@@ -6,15 +6,15 @@ GUI::GUI(int height, int width) {
         exit(0);
     }
     menu[0].setFont(font);
-    menu[0].setFillColor(sf::Color::White);
     menu[0].setString("Play");
     menu[0].setCharacterSize(80);
+    menu[0].setFillColor(sf::Color::White);
     menu[0].setPosition(400, 300); 
 
     menu[1].setFont(font);
-    menu[1].setFillColor(sf::Color::White);
     menu[1].setString("Quit");
     menu[1].setCharacterSize(80);
+    menu[1].setFillColor(sf::Color::White);
     menu[1].setPosition(400, 400); 
 
     GameName.setFont(font);
