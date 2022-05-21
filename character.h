@@ -14,7 +14,6 @@ class Character {
         void move_left(int speed);
         void move_right(int speed);
         void draw(sf::RenderWindow *win, double speed);
-        // bool isCollide(int x, int y, int depth);
         void respawn(int max_size, int min_size);
         bool check_fall();
         int get_life();
