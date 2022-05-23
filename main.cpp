@@ -31,7 +31,7 @@ class Game {
             }
             // add setting for all the text in menu window
             Text.setFont(Font);
-            Text.setFillColor(sf::Color::Blue);
+            Text.setFillColor(sf::Color::White);
             Text.setCharacterSize(25); 
         }
 
@@ -59,7 +59,7 @@ class Game {
                                 int sec_1 = elapsed1.asSeconds();
                                 
                                 while ( win->pollEvent(event)) {
-                                    if (event.type == sf::Event::Closed)
+                                    if (event.type == sf::Event::Closed || sf::Keyboard::Q)
                                         win->close();
                                     // Press A to move left, D to move right
                                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
