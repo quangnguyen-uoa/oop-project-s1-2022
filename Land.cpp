@@ -1,9 +1,11 @@
 #include "Land.h"
 
+//Constructor
 Land::Land() {
     body->setFillColor(sf::Color::Green);
 }
 
+//Make character stand if touched and fall if moving out of its length
 void Land::touch(Character* character) {
     if (character->get_y() + character->get_size() == get_y()) {
         int char_x = character->get_x();
@@ -15,6 +17,8 @@ void Land::touch(Character* character) {
     }
 }
 
+//Destructor
+Land::~Land() {
 
-Land::~Land() {}
+}
     

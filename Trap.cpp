@@ -1,10 +1,12 @@
 #include "Trap.h"
 
+//Constructor
 Trap::Trap() {
     body->setFillColor(sf::Color::Red);
     body->setSize(sf::Vector2f(200, 5));
 }
 
+// Make character lose 1 life and respawn if touched
 void Trap::touch(Character* character) {
     if (character->get_y() + character->get_size() == get_y()) {
         int char_x = character->get_x();
@@ -14,7 +16,7 @@ void Trap::touch(Character* character) {
     }
 }
 
-
+//Destructor
 Trap::~Trap() {
     
 }
