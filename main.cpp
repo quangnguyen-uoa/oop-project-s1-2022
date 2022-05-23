@@ -59,7 +59,7 @@ class Game {
                                 int sec_1 = elapsed1.asSeconds();
                                 
                                 while ( win->pollEvent(event)) {
-                                    if (event.type == sf::Event::Closed || sf::Keyboard::Q)
+                                    if (event.type == sf::Event::Closed)
                                         win->close();
                                     // Press A to move left, D to move right
                                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
