@@ -118,7 +118,33 @@ class Game {
 
 
 int main() {
-    Game game(1000, "OOP Game", 4);
-    game.run();
+    while (1) {
+        string s;
+        cout << "PRESS H TO SHOW HELP OR PRESS P TO START THE GAME:  ";
+        cin >> s;
+        cout << '\n';
+        if (s == "h" || s == "H") {
+            cout << "*******HELP*******\n";
+            cout << "WHEN THE MENU APPEARS, PRESS START TO START THE GAME\n";
+            cout << "OR PRESS QUIT TO QUIT THE GAME\n";
+            cout << "\n******************\n";
+            cout << "YOU ARE CONTROLLING A CIRCLE-SHAPED CHARACTER\n";
+            cout << "YOU HAVE ONLY 3 LIVES\n";
+            cout << "YOUR GOAL IS TO SURVIVE AS LONG AS POSSIBLE\n";
+            cout << "\n******************\n";
+            cout << "HOW TO PLAY: \n";
+            cout << "PRESS A TO MOVE LEFT\nPRESS D MOVE RIGHT\n";
+            cout << "YOU CAN LAND ON THE GREEN BAR\n";
+            cout << "HOWEVER, IF YOU TOUCH THE RED BAR\nOR THE TOP OR BOTTOM EDGE OF THE WINDOW\nYOU WILL LOSE A LIFE\n";
+            cout << "THE GAME WILL AUTOMATICALLY QUIT WHEN YOU LOSE ALL LIVES\n";
+            cout << "\n-----HAVE FUN------\n\n";
+        }
+        else if (s == "p" || s == "P") {
+            Game game(1000, "OOP Game", 4);
+            game.run();
+            break;
+        }
+        else cout << "INVALID! PLEASE TRY AGAIN\n";
+    }
     return 0;
 }
